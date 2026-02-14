@@ -54,11 +54,11 @@ const products = [
 
     {
         id:7,
-        name:"Party Floral Shirt",
-        src:"assets/img/f7.jpg",
+        name:"White Linen Shirt",
+        src:"assets/img/n3.jpg",
         desc:"",
         price:399,
-        tags:["old","red","party"]
+        tags:["new","white","causal"]
     },
     {
         id:8,
@@ -70,9 +70,9 @@ const products = [
     },
     {
         id:9,
-        name:"Floral Summer Shirt",
-        src:"assets/img/f9.jpg",
-        desc:"",
+        name:" grey loosefit Shirt",
+        src:"assets/img/n8.jpg",
+        desc:"party wear",
         price:220,
         tags:["new","blue","summer"]
     },
@@ -137,37 +137,42 @@ const products = [
         
     })
     
-    function update()
-    {
-        var productList = document.querySelectorAll(".product")
-        for(var i=0;i<productList.length;i++){
-            var check = false
-            var product=productList[i]
-            console.log(product)
-            var temp=product.querySelector("tags").innerHTML
-           
-            console.log("element"+temp)
-            
-            const tempFilterArray = temp.split(',');
-            
-            console.log("tempfilterarray"+tempFilterArray)
-            console.log("filterlist"+filterList)
-           
-                filterList.forEach((j)=>{
-                    tempFilterArray.forEach((i)=>{
-                    if(j==i)
-                    {
-                        check=true
+   function update()
+{
+    var productList = document.querySelectorAll(".product")
+    var searchValue = searchInput.value.toLowerCase()
+
+    for(var i=0;i<productList.length;i++){
+        var product = productList[i]
+
+        var temp = product.querySelector("tags").innerHTML
+        const tempFilterArray = temp.split(',');
+
+        var productName = product.querySelector("h1").innerText.toLowerCase()
+
+        // 🔹 SEARCH MATCH
+        var searchMatch = productName.includes(searchValue)
+
+        // 🔹 TAG MATCH
+        var tagMatch = false
+
+        if(filterList.length == 0){
+            tagMatch = true
+        } else {
+            filterList.forEach((j)=>{
+                tempFilterArray.forEach((k)=>{
+                    if(j == k){
+                        tagMatch = true
                     }
                 })
             })
-    
-            if(!check && filterList.length>0)
-            {
-                product.style.display="none"
-            }
-            else{
-                product.style.display="block"
-            } 
-        };
+        }
+
+        // 🔹 FINAL SHOW / HIDE
+        if(searchMatch && tagMatch){
+            product.style.display = "block"
+        } else {
+            product.style.display = "none"
+        }
     }
+}
