@@ -2,7 +2,7 @@ const products = [
     {
         id:1,
         name:"Floral Summer Shirt",
-        src:"f1.jpg",
+        src:"assets/img/f1.jpg",
         desc:"",
         price:220,
         tags:["new","blue","summer"]
@@ -11,7 +11,7 @@ const products = [
     {
         id:2,
         name:"Summer Green",
-        src:"f2.jpg",
+        src:"assets/img/f2.jpg",
         desc:"",
         price:260,
         tags:["new","green","beach"]
@@ -20,7 +20,7 @@ const products = [
     {
         id:3,
         name:"Party Floral Shirt",
-        src:"f3(1).jpg",
+        src:"assets/img/f3.jpg",
         desc:"",
         price:399,
         tags:["old","red","party"]
@@ -29,7 +29,7 @@ const products = [
     {
         id:4,
         name:"Floral summer shirt",
-        src:"f4.jpg",
+        src:"assets/img/f4.jpg",
         desc:"",
         price:399,
         tags:["old","white","beach"]
@@ -37,7 +37,7 @@ const products = [
     {
         id:5,
         name:"Beach Shirt",
-        src:"f5.jpg",
+        src:"assets/img/f5.jpg",
         desc:"",
         price:579,
         tags:["old","white","beach"]
@@ -46,7 +46,7 @@ const products = [
     {
         id:6,
         name:"Shirt Party Red",
-        src:"f6.jpg",
+        src:"assets/img/f6.jpg",
         desc:"",
         price:579,
         tags:["old","red","party"]
@@ -55,7 +55,7 @@ const products = [
     {
         id:7,
         name:"Party Floral Shirt",
-        src:"f3.jpg",
+        src:"assets/img/f7.jpg",
         desc:"",
         price:399,
         tags:["old","red","party"]
@@ -63,7 +63,7 @@ const products = [
     {
         id:8,
         name:"Shirt Party Red",
-        src:"f6.jpg",
+        src:"assets/img/f8.jpg",
         desc:"",
         price:579,
         tags:["old","red","party"]
@@ -71,17 +71,12 @@ const products = [
     {
         id:9,
         name:"Floral Summer Shirt",
-        src:"f8.jpg",
+        src:"assets/img/f9.jpg",
         desc:"",
         price:220,
         tags:["new","blue","summer"]
     },
-
-
 ]
-
-
-
     var offerBar = document.querySelector(".offer-bar")
 
     document.getElementById("offer-close").addEventListener("click",
@@ -102,17 +97,11 @@ const products = [
         document.querySelector(".side-navbar").style.marginLeft = "-60%"
     })
     
-    
-        
-       
-    
-    
-    
     var container=document.querySelector(".products")
     products.forEach((product)=>{
         var createItem = document.createElement("div")
         createItem.classList.add("product")
-        createItem.innerHTML=` <img style="width: 20vw;" src="img/${product.src}">
+        createItem.innerHTML=` <img style="width: 20vw;" src="${product.src}">
         <h1>${product.name}</h1>
         <p>₹${product.price}</p>
         <tags style="visibility:hidden;">${product.tags}</tags>`
@@ -139,9 +128,6 @@ const products = [
                 update()
     
             }
-    
-            
-           
         })
     })
     
@@ -153,12 +139,6 @@ const products = [
     
     function update()
     {
-    
-        
-    
-        
-    
-        
         var productList = document.querySelectorAll(".product")
         for(var i=0;i<productList.length;i++){
             var check = false
@@ -166,9 +146,8 @@ const products = [
             console.log(product)
             var temp=product.querySelector("tags").innerHTML
            
-            console.log("elemen"+temp)
+            console.log("element"+temp)
             
-    
             const tempFilterArray = temp.split(',');
             
             console.log("tempfilterarray"+tempFilterArray)
@@ -183,17 +162,12 @@ const products = [
                 })
             })
     
-    
             if(!check && filterList.length>0)
             {
                 product.style.display="none"
             }
             else{
                 product.style.display="block"
-            }
-    
-            
+            } 
         };
-    
-    
     }

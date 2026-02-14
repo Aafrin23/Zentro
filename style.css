@@ -7,8 +7,6 @@ html{
     scroll-behavior: smooth;
 }
 
-
-
 body {
     font-family: 'Poppins', sans-serif;
     
@@ -19,8 +17,6 @@ body {
     width: 0; 
   }
   
-  
-
 .offer-bar {
     background-color: #1D232C;
     color: #E2E1E1;
@@ -436,9 +432,6 @@ input:focus {
     border-radius: 10px;
     border: none;
     padding:10px
-    
-    
-
  }
 
 

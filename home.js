@@ -1,8 +1,5 @@
 
-
-
-
-        var offerBar = document.querySelector(".offer-bar")
+var offerBar = document.querySelector(".offer-bar")
 
 document.getElementById("offer-close").addEventListener("click",
 
@@ -20,8 +17,6 @@ sideNavMenu.addEventListener("click",function(){
 document.getElementById("side-navbar-close").addEventListener("click",()=>{
     document.querySelector(".side-navbar").style.marginLeft = "-60%"
 })
-
-
 
 var sliderleftbutton = document.getElementById("slider-left-activate")
 var sliderrightbutton =document.getElementById("slider-right-activate")
@@ -68,10 +63,6 @@ function(){
     
 }
 )
-
-
-
-
 
 var likebuttons=document.querySelectorAll(".like-button")
 
