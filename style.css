@@ -1144,4 +1144,48 @@ input:focus {
 
   .contact-form input[type="submit"]:hover {
     background-color: #0056b3;
+    .newsletter-msg {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #4caf50; /* green for success */
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    display: none;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    font-family: 'Poppins', sans-serif;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
   }
+  .newsletter-msg {
+    position: fixed;
+    top: 20px; /* distance from top */
+    right: 20px; /* distance from right */
+    background-color: #1D232C;
+    color: #E2E1E1;
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-size: 1.2vw;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    opacity: 0;
+    pointer-events: none; /* so it doesn’t block clicks */
+    z-index: 1000;
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+/* When visible */
+.newsletter-msg.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Optional: differentiate types */
+.newsletter-msg.success {
+    background-color: #28a745; /* green */
+}
+.newsletter-msg.error {
+    background-color: #dc3545; /* red */
+}

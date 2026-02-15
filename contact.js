@@ -39,4 +39,51 @@ contactForm.addEventListener("submit", function (e) {
 
   // Clear form
   contactForm.reset();
+
+  
+});
+const newsletterInput = document.getElementById("newsletter-email");
+const newsletterBtn = document.getElementById("newsletter-subscribe");
+const newsletterMsg = document.getElementById("newsletter-msg");
+
+// Show toast message
+function showMessage(msg, type = "success") {
+    newsletterMsg.textContent = msg;
+    newsletterMsg.className = `newsletter-msg show ${type}`;
+
+    // Hide after 3 seconds
+    setTimeout(() => {
+        newsletterMsg.className = `newsletter-msg ${type}`;
+    }, 3000);
+}
+
+newsletterBtn.addEventListener("click", () => {
+    const email = newsletterInput.value.trim();
+
+    if (email === "") {
+        showMessage("Please enter an email!", "error");
+        return;
+    }
+
+    // Basic email validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        showMessage("Please enter a valid email!", "error");
+        return;
+    }
+
+    let emails = JSON.parse(localStorage.getItem("newsletterEmails")) || [];
+
+    if (emails.includes(email)) {
+        showMessage("You are already subscribed!", "error");
+        newsletterInput.value = "";
+        return;
+    }
+
+    emails.push(email);
+    localStorage.setItem("newsletterEmails", JSON.stringify(emails));
+
+    showMessage("Thanks for subscribing!");
+    newsletterInput.value = "";
+    console.log("Current stored emails:", emails);
 });

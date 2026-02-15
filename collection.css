@@ -575,3 +575,25 @@ input:focus {
   .contact-form input[type="submit"]:hover {
     background-color: #0056b3;
   }
+.newsletter-msg {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #4caf50; /* green for success */
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    display: none;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    font-family: 'Poppins', sans-serif;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+.newsletter-msg.show {
+    display: block;
+    opacity: 1;
+}
+.newsletter-msg.error {
+    background-color: #f44336; /* red for error */
+}
